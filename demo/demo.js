@@ -1,53 +1,59 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import {DomIf as DomIf} from '@polymer/polymer/lib/elements/dom-if.js';
+import '@polymer/app-layout/app-layout.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-dialog/paper-dialog.js';
 import '@polymer/paper-styles/default-theme.js';
 import '@polymer/paper-button/paper-button.js';
+import '@polymer/paper-item/paper-item.js';
 
-class OpenDialog extends PolymerElement {
+class DemoDialog extends PolymerElement {
   static get template() {
     return html`
     <style>
-
+      paper-button {
+        margin: 10px;
+      }
+      app-toolbar {
+        background-color: var(--primary-color);
+        color: var(--primary-background-color);
+        margin-top: 0;
+      }
     </style>
 
-    <paper-button class="md-button md-button-warn-custom" on-tap="_openDialog" ><strong>[[titleName]] ([[count]])</strong></paper-button>
+    <paper-button raised on-tap="_openDialog" ><strong>[[titleName]] ([[count]])</strong></paper-button>
 
      <paper-dialog id="dialog">
-        <div class="md-toolbar-tools">
-            <h2 class="ng-binding">[[titleName]] ([[count]])</h2>
-            <span flex="" class="flex"></span>
+        <app-toolbar>
+            <h2 main-title>[[titleName]] ([[count]])</h2>
             <paper-button dialog-dismiss><iron-icon icon="close"></iron-icon></paper-button>
-        </div>
-        <ul class="list-group">
+        </app-toolbar>
+        <ul>
           <template is="dom-repeat" items="[[dataList]]" if="{{dataExist(count)}}">
-             <li class="list-group-item-md-card">
-                    <template is="dom-if" if="[[propertyNotEmpty(item.degree)]]">
-                        <span><strong>Degree &nbsp;</strong> [[item.degree]]<br/></span>
-                    </template>
-                    [[item.name]]<br/>
-                    <template is="dom-if" if="[[propertyNotEmpty(item.role)]]">
-                        <span>[[item.role]]<br/></span>
-                    </template>
-                    <template is="dom-if" if="[[propertyNotEmpty(item.email)]]">
-                        <span>Email: <a href="mailto:[[item.email]]">[[item.email]]</a></span>
-                    </template>
+             <paper-item>
+                <template is="dom-if" if="[[propertyNotEmpty(item.degree)]]">
+                    <span><strong>Degree &nbsp;</strong> [[item.degree]]<br/></span>
+                </template>
+                [[item.name]]<br/>
+                <template is="dom-if" if="[[propertyNotEmpty(item.role)]]">
+                    <span>[[item.role]]<br/></span>
+                </template>
+                <template is="dom-if" if="[[propertyNotEmpty(item.email)]]">
+                    <span>Email: <a href="mailto:[[item.email]]">[[item.email]]</a></span>
+                </template>
 
-                    <template is="dom-repeat" items="[[item.subPlans]]" if="[[propertyNotEmpty(item.subPlans)]]">
-                        <span style="margin-left: 43px;">-&nbsp;[[item]]</span><br/>
-                    </template>
-             </li>
+                <template is="dom-repeat" items="[[item.subPlans]]" if="[[propertyNotEmpty(item.subPlans)]]">
+                    <span style="margin-left: 43px;">-&nbsp;[[item]]</span><br/>
+                </template>
+             </paper-item>
            </template>
            <template is="dom-if"  if="{{!dataExist(count)}}">
-             <li class="list-group-item-md-card">[[noData]]</li>
+             <li>[[noData]]</li>
            </template>
         </ul>
 
 
      </paper-dialog>
-
-
 `;
   }
 
@@ -75,19 +81,7 @@ class OpenDialog extends PolymerElement {
             },
             noData: {
                 type:String
-            },
-            classColor: function(counter) {
-                if (counter==0) {
-                    console.log('list-group-item-md-card-withouttopline counter value....'+counter);
-                    return 'list-group-item-md-card-withouttopline';
-                }
-                else {
-                    console.log('list-group-item-md-card counter value....'+counter);
-                    return 'list-group-item-md-card';
-                }
             }
-
-
 
         };
     }
@@ -112,4 +106,4 @@ class OpenDialog extends PolymerElement {
     }
 
 }
-window.customElements.define('open-dialog', OpenDialog);
+window.customElements.define('demo-dialog', DemoDialog);
