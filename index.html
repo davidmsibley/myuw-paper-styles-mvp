@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background: #ccc;
+            }
+        </style>
+
+        <script type="module" src="https://unpkg.com/@myuw-web-components/myuw-app-styles@^1?module"></script>
+        <script nomodule scr="https://unpkg.com/@myuw-web-components/myuw-app-styles@^1"></script>
+
+        <script type="module" src="https://unpkg.com/@myuw-web-components/myuw-app-bar@^1?module"></script>
+        <script nomodule scr="https://unpkg.com/@myuw-web-components/myuw-app-bar@^1"></script>
+
+        <script type="module" src="https://unpkg.com/@myuw-web-components/myuw-profile@^1?module"></script>
+        <script nomodule scr="https://unpkg.com/@myuw-web-components/myuw-profile@^1"></script>
+
+        <script type="module" src="https://unpkg.com/@myuw-web-components/myuw-drawer@^1?module"></script>
+        <script nomodule scr="https://unpkg.com/@myuw-web-components/myuw-drawer@^1"></script>
+
+        <script type="module" src="https://unpkg.com/@myuw-web-components/myuw-help@^1?module"></script>
+        <script nomodule scr="https://unpkg.com/@myuw-web-components/myuw-help@^1"></script>
+
+        <script type="module" src="./dist/myuw-paper-styles.mjs"></script>
+        <script nomodule src="./dist/myuw-paper-styles.js"></script>
+
+        <script type="module" src="./demo/dist/demo.mjs"></script>
+
+        <script src="//khan.github.io/tota11y/tota11y/build/tota11y.min.js"></script>
+    </head>
+    <body>
+        <myuw-app-bar
+            theme-name="MyUW"
+            theme-url="https://my.wisc.edu"
+            app-name="Bucky Backup">
+          <myuw-drawer slot="myuw-navigation">
+            <myuw-drawer-link
+              slot="myuw-drawer-links"
+              name="MyUW home"
+              icon="mail"
+              href="http://google.com">
+            </myuw-drawer-link>
+          </myuw-drawer>
+          <myuw-help slot="myuw-help">
+          </myuw-help>
+          <myuw-profile slot="myuw-profile" session-endpoint="lib/myuw-profile/session.json"></myuw-profile>
+        </myuw-app-bar>
+        <div class="demo__container">
+          <open-dialog class="red" data-list='[{"name": "Financial Responsibility Agrmt -  Fall 2018 (HOLD)", "id": "1"},{"name": "Fee-School of Music -  Spring 2018 (HOLD)", "id": "2"},{"name": "Probation -  Spring 2018 (ACTION)", "id": "3"},{"name": "IESP Ex-Copenhagen, Denmark -  Spring 2017 (INFO)", "id": "4"}]' title-name='Alerts' count="4" no-data="This is where you will see important personal messages about enrollment, holds and academic status."></open-dialog>
+        </div>
+    </body>
+    <script>
+    </script>
+</html>
