@@ -7,9 +7,10 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "serve": "live-server",
+    "serve": "live-server demo/",
     "start": "run-p watch serve",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "pages": "gh-pages -d demo"
   },
   "repository": {
     "type": "git",

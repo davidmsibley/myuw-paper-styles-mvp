@@ -51,6 +51,24 @@ export default [
     input: `src/madison-theme.js`,
     plugins: plugins.full,
     output: {
+      file: `demo/dist/${fileName}.js`,
+      name: objName,
+      format: 'iife'
+    }
+  },
+  {
+    input: `src/madison-theme.js`,
+    plugins: plugins.full,
+    output: {
+      file: `demo/dist/${fileName}.mjs`,
+      name: objName,
+      format: 'es'
+    }
+  },
+  {
+    input: `src/madison-theme.js`,
+    plugins: plugins.full,
+    output: {
       file: `dist/${fileName}.js`,
       name: objName,
       format: 'iife'
