@@ -7,6 +7,6 @@ This component maps MyUW app styles over to paper components
 Add the app styles script to your document:
 
 ```html
-<script type="module" src="https://unpkg.com/@myuw-web-components/myuw-paper-styles@^1?module"></script>
-<script nomodule src="https://unpkg.com/@myuw-web-components/myuw-paper-styles@^1"></script>
+<script type="module" src="https://unpkg.com/@davidmsibley/myuw-paper-styles?module"></script>
+<script nomodule src="https://unpkg.com/@davidmsibley/myuw-paper-styles"></script>
 ```
