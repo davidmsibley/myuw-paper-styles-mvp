@@ -1,5 +1,5 @@
 {
-  "name": "@davidmsibley/myuw-paper-styles",
+  "name": "@sibley/myuw-paper-styles",
   "version": "0.1.0",
   "description": "Use MyUW app styles within paper components",
   "module": "dist/myuw-paper-styles.min.mjs",
