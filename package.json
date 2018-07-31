@@ -10,7 +10,8 @@
     "serve": "live-server demo/",
     "start": "run-p watch serve",
     "prepare": "npm run build",
-    "pages": "gh-pages -d demo"
+    "pages": "gh-pages -d demo",
+    "postpublish": "npm run pages"
   },
   "repository": {
     "type": "git",
